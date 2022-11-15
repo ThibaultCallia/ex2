@@ -1,3 +1,5 @@
+import { containsAnyLetters, isVowel } from "./helper.js";
+
 class Text {
   str;
 
@@ -15,12 +17,11 @@ class Text {
     return this.str.length;
   }
   wordCount() {
-    return this.str.split(" ").length;
+    return this.str.split(" ").filter((element) => containsAnyLetters(element))
+      .length;
   }
   vowelCount() {
-    return [...this.str].filter((char) =>
-      ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"].includes(char)
-    ).length;
+    return [...this.str].filter((char) => isVowel(char)).length;
   }
   capitalCount() {
     return [...this.str]
