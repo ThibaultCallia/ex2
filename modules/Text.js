@@ -30,13 +30,11 @@ class Text {
       .filter((element) => element.match(/[a-zA-Z]/)).length;
   }
   append(string) {
-    this.str = this.str.concat(string);
-    return this;
+    return new Text(this.str.concat(string));
   }
 
   prepend(string) {
-    this.str = string.concat(this.str);
-    return this;
+    return new Text(string.concat(this.str));
   }
 }
 
